@@ -58,6 +58,37 @@ class TestMsgGetaddress(TrezorTest):
             == "1GS8X3yc7ntzwGw9vXwj9wqmBWZkTFewBV"
         )
 
+    def test_flo(self):
+        self.setup_mnemonic_nopin_nopassphrase()
+        assert (
+            btc.get_address(self.client, "Florincoin", parse_path("44'/216'/0'/0/0"))
+            == "FGsFtBqNVikLF8PAbqVF1ETPePN1qC1ADZ"
+        )
+        assert (
+            btc.get_address(self.client, "Florincoin", parse_path("44'/216'/0'/0/1"))
+            == "FHsU6w64JRxX9KrhmwMC4QVW2c21tvWSYD"
+        )
+        assert (
+            btc.get_address(self.client, "Florincoin", parse_path("44'/216'/0'/0/2"))
+            == "F6oECdgEdT4kxjPk8roYzZg6Mixh2cjMkR"
+        )
+        assert (
+            btc.get_address(self.client, "Florincoin", parse_path("44'/216'/0'/0/3"))
+            == "FTyYsGYYKeuHBZoNic6MPSn5knZpbSi368"
+        )
+        assert (
+            btc.get_address(self.client, "Florincoin", parse_path("44'/216'/0'/0/4"))
+            == "FN4eioEZKYhwDpHLa5657gfgEuWmccLerv"
+        )
+        assert (
+            btc.get_address(self.client, "Florincoin", parse_path("44'/216'/0'/0/5"))
+            == "FJ6RVKiGjPLUovwTq93EsyssV4PF39Qcwy"
+        )
+        assert (
+            btc.get_address(self.client, "Florincoin", parse_path("44'/216'/0'/0/6"))
+            == "F6tgJqddKSzxnpRebA5mtGdgUqmbvNADrQ"
+        )
+
     def test_ltc(self):
         self.setup_mnemonic_nopin_nopassphrase()
         assert (

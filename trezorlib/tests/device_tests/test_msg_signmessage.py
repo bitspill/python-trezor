@@ -42,6 +42,17 @@ class TestMsgSignmessage(TrezorTest):
             == "209e23edf0e4e47ff1dec27f32cd78c50e74ef018ee8a6adf35ae17c7a9b0dd96f48b493fd7dbab03efb6f439c6383c9523b3bbc5f1a7d158a6af90ab154e9be80"
         )
 
+    def test_sign_flo(self):
+        self.setup_mnemonic_nopin_nopassphrase()
+        sig = btc.sign_message(
+            self.client, "Florincoin", [0], "This is an example of a signed message."
+        )
+        assert sig.address == "F9AsxtB9jBhXWm3CuhjEy2NT5F5wwSH2LX"
+        assert (
+            sig.signature.hex()
+            == "1f5cfc5548a65dc760b80c0e78406215b51cd52f9b79ce669361282fc9ad71de92720d55f72835aac222756e13453b7cf4bc1f6871e6171da4116fb27e5da96b99"
+        )
+
     def test_sign_bch(self):
         self.setup_mnemonic_nopin_nopassphrase()
         sig = btc.sign_message(

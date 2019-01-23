@@ -46,6 +46,19 @@ class TestMsgVerifymessage(TrezorTest):
         )
         assert ret is True
 
+    def test_message_flo(self):
+        self.setup_mnemonic_nopin_nopassphrase()
+        ret = btc.verify_message(
+            self.client,
+            "Florincoin",
+            "F9AsxtB9jBhXWm3CuhjEy2NT5F5wwSH2LX",
+            bytes.fromhex(
+                "1f5cfc5548a65dc760b80c0e78406215b51cd52f9b79ce669361282fc9ad71de92720d55f72835aac222756e13453b7cf4bc1f6871e6171da4116fb27e5da96b99"
+            ),
+            "This is an example of a signed message.",
+        )
+        assert ret is True
+
     def test_message_verify(self):
         self.setup_mnemonic_nopin_nopassphrase()
 
